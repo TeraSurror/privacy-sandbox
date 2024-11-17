@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Privacy Sandbox demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./static/css/main.css" rel="stylesheet">
+</head>
+<body>
+    <div class="">
+        <!-- header -->
+        <div class="bg-[#000080] flex justify-between text-white text-lg p-2">
+            <p>news.publisher.com</p>
+            <div>
+                <a href="/" class="mx-2 underline">advertiser1(travel)</a>
+                <a href="/advertiser2" class="mx-2 underline">advertiser2(cafe)</a>
+                <a href="/publisher" class="mx-2 underline">publisher</a>
+                <a href="/cookiead" class="mx-2 underline">advertiser 1 (Travel - cookie)</a>
+                <a href="/cookiead2" class="mx-2 underline">Publisher - Cookie</a>
+            </div>
+        </div>
+        <!-- top card -->
+        <div class="border-4 border-black mx-4 mt-2 text-center py-4 px-12">
+            <h1 class="text-5xl">This is a news website (using cookies publisher)</h1>
+            <p class="text-xl my-2">
+                After visiting the travel website (using cookies), your information will be used to show the ad below.
+            </p>
+        </div>
+        <div class="flex items-start justify-between text-center m-4">
+            <div class="w-2/3 p-2 border-4 border-black">
+                <p class="text-4xl">BREAKING NEWS!</p>
+                <div class="flex items-center">
+                    <img src="./static/assets/whitehouse.png" class="w-1/2 p-2"/>
+                    <div class="w-1/2 p-2 text-xl">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse venenatis, sem quis dignissim maximus, augue tortor suscipit dui, eu dignissim magna quam et velit. Pellentesque facilisis quis nunc et condimentum. Phasellus vel blandit velit. Aenean hendrerit molestie mi, 
+                    </div>
+                </div>
+            </div>
+            <div class="w-1/3 border-4 border-red-700 ml-2">
+                <p class="text-2xl text-red-700">Ad</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
