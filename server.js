@@ -2,7 +2,15 @@ const https = require('https');
 const fs = require('fs');
 const path = require('path');
 const express = require('express');
+const winston = require('winston');
 const app = express();
+
+const logger = winston.createLogger({
+    transports: [
+      new winston.transports.Console(),
+      new winston.transports.File({ filename: 'combined.log' })
+    ]
+  });
 
 // Helper function to parse cookies
 function parseCookies(cookieString) {
@@ -66,7 +74,10 @@ app.get('/cookiead', (req, res) => {
 
 app.get('/cookiead2', (req, res) => {
     const cookies = parseCookies(req.headers.cookie);
-    console.log('Cookie details:', cookies);
+    logger.log({
+        level: 'info',
+        message: 'Cookie details: ' + req.headers.cookie
+      });
     res.sendFile(path.join(__dirname + '/static/html/cookiead2.html'));
 })
 
