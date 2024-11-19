@@ -4,10 +4,10 @@ module.exports = {
   content: [],
   theme: {
     extend: {
-        fontFamily: {
-            'vt': ['VT323', 'cursive'],
-        },
+      fontFamily: {
+        'vt': ['VT323', 'bold'],
+      },
     },
-},
+  },
   plugins: [],
 }
