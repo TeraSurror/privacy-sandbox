@@ -61,24 +61,39 @@ app.get('/publisher', (_, res) => {
     res.sendFile(path.join(__dirname + '/static/html/publisher.html'));
 });
 
-app.get('/cookiead', (req, res) => {
+app.get('/travel-cookie', (req, res) => {
     const userIP = req.socket.remoteAddress || 
                     req.headers['x-forwarded-for'] || 
                     '0.0.0.0';
     res.setHeader('Set-Cookie', [
         `userIP=${userIP}; path=/`,
-        `interestGroup=some random group; path=/`
+        `adVisited=travel; path=/`
     ]);
-    res.sendFile(path.join(__dirname + '/static/html/cookiead.html'));
+    res.sendFile(path.join(__dirname + '/static/html/cafe_cookie.html'));
 })
 
-app.get('/cookiead2', (req, res) => {
+app.get('/cafe-cookie', (req, res) => {
+    const userIP = req.socket.remoteAddress || 
+                    req.headers['x-forwarded-for'] || 
+                    '0.0.0.0';
+    res.setHeader('Set-Cookie', [
+        `userIP=${userIP}; path=/`,
+        `adVisited=cafe; path=/`
+    ]);
+    res.sendFile(path.join(__dirname + '/static/html/travel_cookie.html'));
+})
+
+app.get('/news-cookie', (req, res) => {
     const cookies = parseCookies(req.headers.cookie);
     logger.log({
         level: 'info',
         message: 'Cookie details: ' + req.headers.cookie
-      });
-    res.sendFile(path.join(__dirname + '/static/html/cookiead2.html'));
+    });
+    if (cookies.adVisited == 'cafe') {
+        res.sendFile(path.join(__dirname + '/static/html/cookie_ad_cafe.html'));
+    } else {
+        res.sendFile(path.join(__dirname + '/static/html/cookie_ad_travel.html'));
+    }
 })
 
 
